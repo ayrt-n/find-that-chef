@@ -45,5 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_27_140416) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "appearances", "chefs"
+  add_foreign_key "appearances", "shows"
   add_foreign_key "restaurants", "chefs"
 end
