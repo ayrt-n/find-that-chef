@@ -71,3 +71,9 @@ group :development, :test do
   gem "webdrivers"
   gem "faker"
 end
+
+group :development do
+    gem "rails_live_reload"
+end
+
+gem "tailwindcss-rails", "~> 2.5"
