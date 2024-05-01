@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_28_183901) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_01_113712) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appearances", force: :cascade do |t|
-    t.string "season"
     t.bigint "chef_id"
     t.bigint "show_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "season_id"
     t.index ["chef_id"], name: "index_appearances_on_chef_id"
+    t.index ["season_id"], name: "index_appearances_on_season_id"
     t.index ["show_id"], name: "index_appearances_on_show_id"
   end
 
@@ -43,6 +44,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_28_183901) do
     t.index ["chef_id"], name: "index_restaurants_on_chef_id"
   end
 
+  create_table "seasons", force: :cascade do |t|
+    t.integer "number"
+    t.string "name"
+    t.bigint "show_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["show_id"], name: "index_seasons_on_show_id"
+  end
+
   create_table "shows", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -52,4 +62,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_28_183901) do
   add_foreign_key "appearances", "chefs"
   add_foreign_key "appearances", "shows"
   add_foreign_key "restaurants", "chefs"
+  add_foreign_key "seasons", "shows"
 end

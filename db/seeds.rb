@@ -4,112 +4,116 @@
 top_chef = Show.create(name: 'Top Chef')
 
 top_chef_contestants = {
-  "Season 1 (San Francisco)" => [
+  "San Francisco" => [
     "Stephen Asprinio", "Andrea Beaman", "Harold Dieterle", "Tiffani Faison", "Brian Hill",
     "Candice Kumai", "Ken Lee", "Dave Martin", "Miguel Morales", "Lisa Parks", "Cynthia Sestito",
     "Lee Anne Wong"
   ],
-  "Season 2 (Los Angeles)" => [
+  "Los Angeles" => [
     "Elia Aboumrad", "Otto Borsich", "Marisa Churchill", "Cliff Crooks", "Carlos Fernandez",
     "Betty Fraser", "Mia Gaines-Alt", "Ilan Hall", "Michael Midgley", "Josie Smith-Malave",
     "Emily Sprissler", "Suyai Steinhauer", "Sam Talbot", "Frank Terzoli", "Marcel Vigneron"
   ],
-  "Season 3 (Miami)" => [
+  "Miami" => [
     "Lia Bardeen", "Camille Becerra", "Sandee Birdsong", "Clay Bowen", "Micah Edelstein",
     "Hung Huynh", "Chris Jacobsen", "Howie Kleinberg", "Dale Levitski", "Sara Mair",
     "Brian Malarkey", "Sara Nguyen", "Joey Paulino", "Casey Thompson", "Tre Wilcox"
   ],
-  "Season 4 (Chicago)" => [
+  "Chicago" => [
     "Zoi Antonitsas", "Jennifer Biesty", "Richard Blais", "Valerie Bolon", "Nikki Cascone",
     "Andrew D'Ambrosi", "Lisa Fernandes", "Erik Hopfinger", "Stephanie Izard", "Antonia Lofaso",
     "Spike Mendelsohn", "Nimma Osman", "Ryan Scott", "Mark Simmons", "Dale Talde", "Manuel Trevino"
   ],
-  "Season 5 (New York)" => [
+  "New York" => [
     "Leah Cohen", "Radhika Desai", "Ariane Duarte", "Patrick Dunlea", "Alex Eusebio",
     "Danny Gagnon", "Carla Hall", "Melissa Harrison", "Lauren Hope", "Jamie Lauren",
     "Jeff McInnis", "Stefan Richter", "Hosea Rosenberg", "Jill Snyder", "Richard Sweeney",
     "Eugene Villiatora", "Fabio Viviani"
   ],
-  "Season 6 (Las Vegas)" => [
+  "Las Vegas" => [
     "Eve Aronoff", "Jennifer Carroll", "Ron Duprat", "Ash Fulk", "Kevin Gillespie",
     "Laurine Hope", "Mike Isabella", "Eli Kirshtein", "Robin Leventhal", "Ashley Merriman",
     "Preeti Mistry", "Mattin Noblia", "Jesse Sandlin", "Hector Santiago", "Bryan Voltaggio",
     "Michael Voltaggio", "Jennifer Zavala"
   ],
-  "Season 7 (D.C.)" => [
+  "D.C." => [
     "Amanda Baumgarten", "Tracey Bloom", "Ed Cotton", "Andrea Curto-Randazzo", "Timothy Dean",
     "Tiffany Derry", "Lynne Gigliotti", "Kenny Gilbert", "Stephen Hopcraft", "Kelly Liken",
     "Jacqueline Lombard", "Arnold Myint", "Alex Reznik", "Kevin Sbraga", "John Somerville",
     "Angelo Sosa", "Tamesha Warren"
   ],
-  "Season 8 (All-Stars)" => [
+  "All-Stars" => [
     "Elia Aboumrad", "Stephen Asprinio", "Richard Blais", "Jennifer Carroll", "Tiffany Derry",
     "Tiffani Faison", "Carla Hall", "Mike Isabella", "Jamie Lauren", "Dale Levitski",
     "Antonia Lofaso", "Spike Mendelsohn", "Angelo Sosa", "Dale Talde", "Casey Thompson",
     "Marcel Vigneron", "Fabio Viviani", "Tre Wilcox"
   ],
-  "Season 9 (Texas)" => [
+  "Texas" => [
     "Nyesha Arrington", "Lindsay Autry", "Jonathan Baltazar", "Ty-Lör Boring", "Molly Brandt",
     "Chaz Brown", "Kimberly Calichio", "Chris Crary", "Andrew Curren", "Berenice DeAraujo",
     "Janine Falvo", "Richie Farina", "Sarah Grueneberg", "Chris Jones", "Beverly Kim", "Edward Lee",
     "Whitney Otawka", "Simon Pantet", "Colin Patterson", "Laurent Quenioux", "Paul Qui", "Keith Rhodes",
     "Grayson Schmitz", "Tyler Stone", "Heather Terhune", "Tyson Wong"
   ],
-  "Season 10 (Seattle)" => [
+  "Seattle" => [
     "Lizzie Binder", "Brooke Williamson", "Chrissy Camba", "Josie Smith-Malave", "Micah Fields",
     "John Tesar", "Sheldon Simeon", "Joshua Valentine", "Stefan Richter", "Kristen Kish",
     "Danyele McPherson", "Eliza Gavin", "Carla Pellegrino", "Bart Vandaele", "Tyler Wiard"
   ],
-  "Season 11 (New Orleans)" => [
+  "New Orleans" => [
     "Stephanie Cmar", "Jason Cichonski", "Janine Booth", "Justin Devillier", "Carlos Gaytán",
     "Brian Huskey", "Carrie Mashaney", "Nicholas Elmi", "Louis Maldonado", "Bene Bartolotta",
     "Travis Masar", "Shirley Chung", "Nina Compton", "Sara Johannes", "Aaron Cuschieri",
     "Michael Sichel", "Bret Pelaggi"
   ],
-  "Season 12 (Boston)" => [
+  "Boston" => [
     "Mei Lin", "Gregory Gourdet", "Doug Adams", "Melissa King", "George Pagonis",
     "Adam Harvey", "Katsuji Tanabe", "Rebecca LaMalfa", "Joy Crump", "Keriann von Raesfeld",
     "Katie Weinner", "Ron Eyester", "James Rigato", "Katie Weinner", "Aaron Grissom"
   ],
-  "13 (California)" => [
+  "California" => [
     "Garret Fleming", "Renee Kelly", "Frances Tariga-Weshnak", "Grayson Schmitz", "Giselle Wellman",
     "Angelina Bastidas", "Wesley True", "Jason Stratton", "Chad White", "Phillip Frankland Lee",
     "Karen Akunowicz", "Kwame Onwuachi", "Carl Dooley", "Isaac Toups", "Marjorie Meek-Bradley", "Amar Santana",
     "Jeremy Ford"
   ],
-  "14 (Charleston)" => [
+  "Charleston" => [
     "Gerald Sombright", "Annie Pettry", "Sam Talbot", "BJ Smith", "Silvia Barban", "Amanda Baumgarten",
     "Jim Smith", "Jamie Lynch", "Katsuji Tanabe", "Emily Hahn", "Casey Thompson", "Sylva Senat",
     "John Tesar", "Sheldon Simeon", "Shirley Chung", "Brooke Williamson"
   ],
-  "15 (Colorado)" => [
+  "Colorado" => [
     "Jennifer Carroll", "Marcel Vigneron", "Kwame Onwuachi", "Melissa Perfit", "Laura Cole", "Rogelio Garcia",
     "Tyler Anderson", "Tu David Phu", "Lee Anne Wong", "Brother Luck", "Tonya Holland", "Claudette Zepeda-Wilkins",
     "Fatima Ali", "Bruce Kalman", "Christopher Scott", "Carrie Baird", "Joe Sasto", "Adrienne Cheatham",
     "Joseph Flamm"
   ],
-  "16 (Kentucky)" => [
+  "Kentucky" => [
     "Jim Smith", "Carrie Baird", "Caitlin Steininger", "Natalie Maronski", "Kevin Scharpf", "Pablo Lamon", "Nini Nguyen",
     "Brother Luck", "Brandon Rosen", "Brian Young", "David Viana", "Edmund Konrad", "Justin Sutherland",
     "Adrienne Wright", "Michelle Minori", "Eric Adjepong", "Sara Bradley", "Kelsey Barnard Clark"
   ],
-  "17 (All-Stars L.A.)" => [
+  "All-Stars L.A." => [
     "Joe Sasto", "Angelo Sosa", "Jamie Lynch", "Lisa Fernandes", "Jennifer Carroll", "Nini Nguyen", "Eric Adjepong",
     "Lee Anne Wong", "Karen Akunowicz", "Brian Malarkey", "Gregory Gourdet", "Kevin Gillespie", "Stephanie Cmar",
     "Bryan Voltaggio", "Melissa King"
   ],
-  "18 (Portland)" => [
+  "Portland" => [
     "Roscoe Hall", "Sasha Grumman", "Brittanny Anderson", "Kiki Louya", "Nelson German", "Gabriel Pascuzzi",
     "Avishar Barua", "Sara Hauman", "Chris Viaud", "Byron Gomez", "Maria Mazon", "Jamie Tran", "Dawn Burrell",
     "Shota Nakajima", "Gabe Erales"
   ],
-  "19 (Houston)" => [
+  "Houston" => [
     "Leia Gaccione", "Stephanie Miller", "Sam Kang", "Robert Hernandez", "Monique Feybesse", "Jo Chan", "Jackson Kalb",
     "Luke Kolpin", "Jae Jung", "Ashleigh Shanti", "Nick Wallace", "Damarr Brown", "Sarah Welch", "Evelyn Garcia", "Buddha Lo"
   ]
 }
 
-top_chef_contestants.each do |season, contestants|
+snum = 1
+top_chef_contestants.each do |season_name, contestants|
+  season = top_chef.seasons.create(number: snum, name: season_name)
+  snum += 1
+
   contestants.each do |contestant|
     fname, lname = contestant.split
     chef = Chef.find_or_create_by(first_name: fname, last_name: lname)
