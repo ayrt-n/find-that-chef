@@ -1,49 +1,178 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
-brooke = Chef.create(first_name: 'Brooke', last_name: 'Williamson')
-brooke.restaurants.create(
-  name: 'Playa Provisions',
-  rating: 3.9,
-  city: 'Los Angeles',
-  state: 'CA',
-  category: ['New American', 'Seafood']
-)
-brooke.restaurants.create(
-  name: 'Da Kikokiko',
-  rating: 3.3,
-  city: 'Playa Vista',
-  state: 'CA',
-  category: ['Hawaiian']
-)
-brooke.restaurants.create(
-  name: 'The Tripel',
-  rating: 4.1,
-  city: 'Playa Vista',
-  state: 'CA',
-  category: ['Gastropub']
-)
-brooke.restaurants.create(
-  name: 'Hudson House',
-  rating: 4.3,
-  city: 'Dallas',
-  state: 'TX',
-  category: ['American', 'Seafood']
-)
-
-bryan = Chef.create(first_name: 'Bryan', last_name: 'Voltaggio')
-bryan.restaurants.create(name: 'Aggio')
-
-michael = Chef.create(first_name: 'Michael', last_name: 'Voltaggio')
-michael.restaurants.create(name: 'Ink')
-
-richard = Chef.create(first_name: 'Richard', last_name: 'Blaise')
-richard.restaurants.create(name: 'FLIP')
-
 top_chef = Show.create(name: 'Top Chef')
-top_chef.appearances.create(season: 6, chef: michael)
-top_chef.appearances.create(season: 10, chef: brooke)
-top_chef.appearances.create(season: 14, chef: brooke)
-top_chef.appearances.create(season: 6, chef: bryan)
-top_chef.appearances.create(season: 4, chef: richard)
-top_chef.appearances.create(season: 8, chef: richard)
+
+top_chef_contestants = {
+  "Season 1 (San Francisco)" => [
+    "Stephen Asprinio", "Andrea Beaman", "Harold Dieterle", "Tiffani Faison", "Brian Hill",
+    "Candice Kumai", "Ken Lee", "Dave Martin", "Miguel Morales", "Lisa Parks", "Cynthia Sestito",
+    "Lee Anne Wong"
+  ],
+  "Season 2 (Los Angeles)" => [
+    "Elia Aboumrad", "Otto Borsich", "Marisa Churchill", "Cliff Crooks", "Carlos Fernandez",
+    "Betty Fraser", "Mia Gaines-Alt", "Ilan Hall", "Michael Midgley", "Josie Smith-Malave",
+    "Emily Sprissler", "Suyai Steinhauer", "Sam Talbot", "Frank Terzoli", "Marcel Vigneron"
+  ],
+  "Season 3 (Miami)" => [
+    "Lia Bardeen", "Camille Becerra", "Sandee Birdsong", "Clay Bowen", "Micah Edelstein",
+    "Hung Huynh", "Chris Jacobsen", "Howie Kleinberg", "Dale Levitski", "Sara Mair",
+    "Brian Malarkey", "Sara Nguyen", "Joey Paulino", "Casey Thompson", "Tre Wilcox"
+  ],
+  "Season 4 (Chicago)" => [
+    "Zoi Antonitsas", "Jennifer Biesty", "Richard Blais", "Valerie Bolon", "Nikki Cascone",
+    "Andrew D'Ambrosi", "Lisa Fernandes", "Erik Hopfinger", "Stephanie Izard", "Antonia Lofaso",
+    "Spike Mendelsohn", "Nimma Osman", "Ryan Scott", "Mark Simmons", "Dale Talde", "Manuel Trevino"
+  ],
+  "Season 5 (New York)" => [
+    "Leah Cohen", "Radhika Desai", "Ariane Duarte", "Patrick Dunlea", "Alex Eusebio",
+    "Danny Gagnon", "Carla Hall", "Melissa Harrison", "Lauren Hope", "Jamie Lauren",
+    "Jeff McInnis", "Stefan Richter", "Hosea Rosenberg", "Jill Snyder", "Richard Sweeney",
+    "Eugene Villiatora", "Fabio Viviani"
+  ],
+  "Season 6 (Las Vegas)" => [
+    "Eve Aronoff", "Jennifer Carroll", "Ron Duprat", "Ash Fulk", "Kevin Gillespie",
+    "Laurine Hope", "Mike Isabella", "Eli Kirshtein", "Robin Leventhal", "Ashley Merriman",
+    "Preeti Mistry", "Mattin Noblia", "Jesse Sandlin", "Hector Santiago", "Bryan Voltaggio",
+    "Michael Voltaggio", "Jennifer Zavala"
+  ],
+  "Season 7 (D.C.)" => [
+    "Amanda Baumgarten", "Tracey Bloom", "Ed Cotton", "Andrea Curto-Randazzo", "Timothy Dean",
+    "Tiffany Derry", "Lynne Gigliotti", "Kenny Gilbert", "Stephen Hopcraft", "Kelly Liken",
+    "Jacqueline Lombard", "Arnold Myint", "Alex Reznik", "Kevin Sbraga", "John Somerville",
+    "Angelo Sosa", "Tamesha Warren"
+  ],
+  "Season 8 (All-Stars)" => [
+    "Elia Aboumrad", "Stephen Asprinio", "Richard Blais", "Jennifer Carroll", "Tiffany Derry",
+    "Tiffani Faison", "Carla Hall", "Mike Isabella", "Jamie Lauren", "Dale Levitski",
+    "Antonia Lofaso", "Spike Mendelsohn", "Angelo Sosa", "Dale Talde", "Casey Thompson",
+    "Marcel Vigneron", "Fabio Viviani", "Tre Wilcox"
+  ],
+  "Season 9 (Texas)" => [
+    "Nyesha Arrington", "Lindsay Autry", "Jonathan Baltazar", "Ty-Lör Boring", "Molly Brandt",
+    "Chaz Brown", "Kimberly Calichio", "Chris Crary", "Andrew Curren", "Berenice DeAraujo",
+    "Janine Falvo", "Richie Farina", "Sarah Grueneberg", "Chris Jones", "Beverly Kim", "Edward Lee",
+    "Whitney Otawka", "Simon Pantet", "Colin Patterson", "Laurent Quenioux", "Paul Qui", "Keith Rhodes",
+    "Grayson Schmitz", "Tyler Stone", "Heather Terhune", "Tyson Wong"
+  ],
+  "Season 10 (Seattle)" => [
+    "Lizzie Binder", "Brooke Williamson", "Chrissy Camba", "Josie Smith-Malave", "Micah Fields",
+    "John Tesar", "Sheldon Simeon", "Joshua Valentine", "Stefan Richter", "Kristen Kish",
+    "Danyele McPherson", "Eliza Gavin", "Carla Pellegrino", "Bart Vandaele", "Tyler Wiard"
+  ],
+  "Season 11 (New Orleans)" => [
+    "Stephanie Cmar", "Jason Cichonski", "Janine Booth", "Justin Devillier", "Carlos Gaytán",
+    "Brian Huskey", "Carrie Mashaney", "Nicholas Elmi", "Louis Maldonado", "Bene Bartolotta",
+    "Travis Masar", "Shirley Chung", "Nina Compton", "Sara Johannes", "Aaron Cuschieri",
+    "Michael Sichel", "Bret Pelaggi"
+  ],
+  "Season 12 (Boston)" => [
+    "Mei Lin", "Gregory Gourdet", "Doug Adams", "Melissa King", "George Pagonis",
+    "Adam Harvey", "Katsuji Tanabe", "Rebecca LaMalfa", "Joy Crump", "Keriann von Raesfeld",
+    "Katie Weinner", "Ron Eyester", "James Rigato", "Katie Weinner", "Aaron Grissom"
+  ],
+  "13 (California)" => [
+    "Garret Fleming", "Renee Kelly", "Frances Tariga-Weshnak", "Grayson Schmitz", "Giselle Wellman",
+    "Angelina Bastidas", "Wesley True", "Jason Stratton", "Chad White", "Phillip Frankland Lee",
+    "Karen Akunowicz", "Kwame Onwuachi", "Carl Dooley", "Isaac Toups", "Marjorie Meek-Bradley", "Amar Santana",
+    "Jeremy Ford"
+  ],
+  "14 (Charleston)" => [
+    "Gerald Sombright", "Annie Pettry", "Sam Talbot", "BJ Smith", "Silvia Barban", "Amanda Baumgarten",
+    "Jim Smith", "Jamie Lynch", "Katsuji Tanabe", "Emily Hahn", "Casey Thompson", "Sylva Senat",
+    "John Tesar", "Sheldon Simeon", "Shirley Chung", "Brooke Williamson"
+  ],
+  "15 (Colorado)" => [
+    "Jennifer Carroll", "Marcel Vigneron", "Kwame Onwuachi", "Melissa Perfit", "Laura Cole", "Rogelio Garcia",
+    "Tyler Anderson", "Tu David Phu", "Lee Anne Wong", "Brother Luck", "Tonya Holland", "Claudette Zepeda-Wilkins",
+    "Fatima Ali", "Bruce Kalman", "Christopher Scott", "Carrie Baird", "Joe Sasto", "Adrienne Cheatham",
+    "Joseph Flamm"
+  ],
+  "16 (Kentucky)" => [
+    "Jim Smith", "Carrie Baird", "Caitlin Steininger", "Natalie Maronski", "Kevin Scharpf", "Pablo Lamon", "Nini Nguyen",
+    "Brother Luck", "Brandon Rosen", "Brian Young", "David Viana", "Edmund Konrad", "Justin Sutherland",
+    "Adrienne Wright", "Michelle Minori", "Eric Adjepong", "Sara Bradley", "Kelsey Barnard Clark"
+  ],
+  "17 (All-Stars L.A.)" => [
+    "Joe Sasto", "Angelo Sosa", "Jamie Lynch", "Lisa Fernandes", "Jennifer Carroll", "Nini Nguyen", "Eric Adjepong",
+    "Lee Anne Wong", "Karen Akunowicz", "Brian Malarkey", "Gregory Gourdet", "Kevin Gillespie", "Stephanie Cmar",
+    "Bryan Voltaggio", "Melissa King"
+  ],
+  "18 (Portland)" => [
+    "Roscoe Hall", "Sasha Grumman", "Brittanny Anderson", "Kiki Louya", "Nelson German", "Gabriel Pascuzzi",
+    "Avishar Barua", "Sara Hauman", "Chris Viaud", "Byron Gomez", "Maria Mazon", "Jamie Tran", "Dawn Burrell",
+    "Shota Nakajima", "Gabe Erales"
+  ],
+  "19 (Houston)" => [
+    "Leia Gaccione", "Stephanie Miller", "Sam Kang", "Robert Hernandez", "Monique Feybesse", "Jo Chan", "Jackson Kalb",
+    "Luke Kolpin", "Jae Jung", "Ashleigh Shanti", "Nick Wallace", "Damarr Brown", "Sarah Welch", "Evelyn Garcia", "Buddha Lo"
+  ]
+}
+
+top_chef_contestants.each do |season, contestants|
+  contestants.each do |contestant|
+    fname, lname = contestant.split
+    chef = Chef.find_or_create_by(first_name: fname, last_name: lname)
+    top_chef.appearances.create(season:, chef:)
+  end
+end
+
+restaurants = {
+  'Brooke Williamson': [
+    {
+      name: 'Playa Provisions',
+      rating: 3.9,
+      city: 'Los Angeles',
+      state: 'CA',
+      category: ['New American', 'Seafood']
+    },
+    {
+      name: 'Da Kikokiko',
+      rating: 3.3,
+      city: 'Playa Vista',
+      state: 'CA',
+      category: ['Hawaiian']
+    },
+    {
+      name: 'The Tripel',
+      rating: 4.1,
+      city: 'Playa Vista',
+      state: 'CA',
+      category: ['Gastropub']
+    },
+    {
+      name: 'Hudson House',
+      rating: 4.3,
+      city: 'Dallas',
+      state: 'TX',
+      category: ['American', 'Seafood']
+    }
+  ],
+  'Bryan Voltaggio': [
+    {
+      name: 'Herb & Wood',
+      rating: 4.1,
+      city: 'San Diego',
+      state: 'CA',
+      category: ['New American', 'Seafood', 'Mediterranean']
+    }
+  ],
+  'Brian Malarkey': [
+    {
+      name: 'Animae',
+      rating: 4.4,
+      city: 'San Diego',
+      state: 'CA',
+      category: ['Asian Fusion', 'Cocktail Bar']
+    }
+  ]
+}
+
+restaurants.each do |chef_name, rest_array|
+  fname, lname = chef_name.to_s.split
+  chef = Chef.find_by(first_name: fname, last_name: lname)
+
+  rest_array.each do |restaurant|
+    chef.restaurants.create(restaurant)
+  end
+end
