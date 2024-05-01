@@ -1,0 +1,17 @@
+<div class="flex">
+  <div class="my-auto mr-1">
+    <%= rating %>
+  </div>
+  <% if rating %>
+    <% 5.times do |i| %>
+      <% if rating >= 1 %>
+        <%= render partial: "icons/star_full" %>
+      <% elsif rating > 0 %>
+        <%= render partial: "icons/star_half" %>
+      <% else %>
+        <%= render partial: "icons/star_empty" %>
+      <% end %>
+      <% rating -= 1 %>
+    <% end %>
+  <% end %>
+</div>

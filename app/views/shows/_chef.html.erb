@@ -1,5 +1,5 @@
-<div class="flex w-[840px] bg-red-500">
-  <div class="flex-none bg-slate-100 min-w-40 min-h-48 pt-4 flex flex-col items-center">
+<div class="flex w-full [&:not(:last-child)]:border-b">
+  <div class="min-w-40 min-h-48 pt-4 flex flex-col items-center sticky">
     <div class="rounded-full w-24 h-24 bg-red-400 mb-2">
     </div>
     <div>
@@ -9,7 +9,13 @@
       <%= chef.last_name %>
     </div>
   </div>
-  <div class="bg-red-300 flex-grow py-4 px-6">
-    Restaurants
+  <div class="flex-grow py-4 px-6 space-y-6">
+    <% if chef.restaurants.empty? %>
+      <div class="font-bold text-xl text-neutral-400">
+        No restaurants reported
+      </div>
+    <% else %>
+      <%= render partial: "shows/restaurant", collection: chef.restaurants %>
+    <% end %>
   </div>
 </div>

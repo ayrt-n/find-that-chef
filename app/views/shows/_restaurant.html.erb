@@ -1,0 +1,16 @@
+<div class="space-y-3 text-sm text-neutral-500 pb-5 [&:not(:last-child)]:border-b ">
+  <div class="flex">
+    <div class="mr-5 font-bold text-xl text-black"><%= restaurant.name %></div>
+    <%= render partial: "shows/rating", locals: { rating: restaurant.rating } %>
+  </div>
+  <div class="space-x-2">
+    <% restaurant.category.each do |category| %>
+      <span class="bg-slate-200 px-2 py-1 rounded-xl font-semibold text-neutral-500">
+        <%= category %>
+      </span>
+    <% end %>
+  </div>
+  <div>
+    <%= restaurant.city %>, <%= restaurant.state %>
+  </div>
+</div>
