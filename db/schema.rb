@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_28_183901) do
   enable_extension "plpgsql"
 
   create_table "appearances", force: :cascade do |t|
-    t.integer "season"
+    t.string "season"
     t.bigint "chef_id"
     t.bigint "show_id"
     t.datetime "created_at", null: false
