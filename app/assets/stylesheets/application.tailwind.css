@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Open Sans";
+  src: font-url("OpenSans-Medium.ttf") format("ttf");
+}
+
 /*
 
 @layer components {
