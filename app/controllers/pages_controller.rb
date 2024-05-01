@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @chefs = Show.find_by(name: 'Top Chef').chefs
+    @chefs = Show.find_by(name: 'Top Chef').chefs.includes(:restaurants)
   end
 end
