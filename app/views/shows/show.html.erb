@@ -1,0 +1,32 @@
+<div class="flex space-x-4 py-6">
+  <div class="px-10">
+    <p class="text-lg text-neutral-800 font-semibold mt-2 mb-4">
+      Filters
+    </p>
+    <div class="text-md">
+      <div class="pb-4 [&:not(:last-child)]:border-b">
+        <%= form_with url: url_for(@show), method: :get do |form| %>
+          <div class="font-semibold mb-2">
+            <%= form.label "Season"%>
+          </div>
+          <div>
+            <%= form.select :season_id, @seasons, { include_blank: 'All Seasons', selected: params[:season_id] }, { onchange: 'this.form.submit()'} %>
+          </div>
+        <% end %>
+      </div>
+      <div class="py-4 text-blue-400 hover:underline">
+        <%= link_to "Clear filters", url_for(params.permit()) %>
+      </div>
+    </div>
+  </div>
+  <div class="w-[840px] flex flex-col items-center">
+    <div class="space-y-3 w-full">
+      <% @chefs.each do |chef| %>
+        <%= render partial: "shows/chef", locals: { chef: chef }%>
+      <% end %>
+    </div>
+    <div class="mt-4 mb-8">
+      <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+    </div>
+  </div>
+</div>

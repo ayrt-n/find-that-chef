@@ -5,7 +5,7 @@ class Show < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  def chefs_from_season(season_num)
-    seasons.find_by(number: season_num).chefs.distinct
+  def chefs_from_season(season_id: nil)
+    season_id ? seasons.find(season_id).chefs.distinct : chefs
   end
 end
