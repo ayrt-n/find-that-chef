@@ -10,7 +10,13 @@
             <%= form.label "Season"%>
           </div>
           <div>
-            <%= form.select :season_id, @seasons, { include_blank: 'All Seasons', selected: params[:season_id] }, { onchange: 'this.form.submit()'} %>
+            <%= form.select :season_id, @seasons,
+                { include_blank: 'All Seasons', selected: params[:season_id] },
+                {
+                  onchange: 'this.form.submit()',
+                  class: 'border border-neutral-300 text-neutal-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 w-[200px]'
+                }
+            %>
           </div>
         <% end %>
       </div>
