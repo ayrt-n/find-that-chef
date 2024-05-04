@@ -8,9 +8,9 @@
         <div class="font-semibold mb-2">
           Season
         </div>
-        <div><%= link_to("All Seasons", @show) %></div>
-        <% @seasons.each do |season| %>
-          <div><%= link_to_season(season) %></div>
+        <div><%= link_to("All Seasons", @season.show) %></div>
+        <% @seasons.each do |s| %>
+          <div><%= link_to_season(s) %></div>
         <% end %>
       </div>
     </div>
@@ -20,9 +20,6 @@
       <% @chefs.each do |chef| %>
         <%= render partial: "shows/chef", locals: { chef: chef }%>
       <% end %>
-    </div>
-    <div class="mt-4 mb-8">
-      <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
     </div>
   </div>
 </div>
