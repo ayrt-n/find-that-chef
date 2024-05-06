@@ -1,3 +1,5 @@
+require 'json'
+
 top_chef_contestants = {
   "San Francisco": [
     "Stephen Asprinio", "Andrea Beaman", "Harold Dieterle", "Tiffani Faison", "Brian Hill",
@@ -48,22 +50,22 @@ top_chef_contestants = {
     "Chaz Brown", "Kimberly Calichio", "Chris Crary", "Andrew Curren", "Berenice DeAraujo",
     "Janine Falvo", "Richie Farina", "Sarah Grueneberg", "Chris Jones", "Beverly Kim", "Edward Lee",
     "Whitney Otawka", "Simon Pantet", "Colin Patterson", "Laurent Quenioux", "Paul Qui", "Keith Rhodes",
-    "Grayson Schmitz", "Tyler Stone", "Heather Terhune", "Tyson Wong"
+    "Grayson Schmitz", "Tyler Stone", "Heather Terhune"
   ],
   "Seattle": [
-    "Lizzie Binder", "Brooke Williamson", "Chrissy Camba", "Josie Smith-Malave", "Micah Fields",
-    "John Tesar", "Sheldon Simeon", "Joshua Valentine", "Stefan Richter", "Kristen Kish",
-    "Danyele McPherson", "Eliza Gavin", "Carla Pellegrino", "Bart Vandaele", "Tyler Wiard"
+    "Jeffrey Jew", "Kuniko Yagi", "Chrissy Camba", "Carla Pellegrino", "Tyler Wiard", "Chris Jacobsen", "Eliza Gavin",
+    "Danyele McPherson", "Bart Vandaele", "John Tesar", "Micah Fields", "Josie Smith-Malave", "Stefan Richter",
+    "Elizabeth Binder", "Joshua Valentine", "Sheldon Simeon", "Brooke Williamson", "Kristen Kish"
   ],
   "New Orleans": [
-    "Stephanie Cmar", "Jason Cichonski", "Janine Booth", "Justin Devillier", "Carlos Gaytán",
+    "Stephanie Cmar", "Jason Cichonski", "Janine Booth", "Justin Devillier", "Carlos Gaytan",
     "Brian Huskey", "Carrie Mashaney", "Nicholas Elmi", "Louis Maldonado", "Bene Bartolotta",
     "Travis Masar", "Shirley Chung", "Nina Compton", "Sara Johannes", "Aaron Cuschieri",
     "Michael Sichel", "Bret Pelaggi"
   ],
   "Boston": [
     "Mei Lin", "Gregory Gourdet", "Doug Adams", "Melissa King", "George Pagonis",
-    "Adam Harvey", "Katsuji Tanabe", "Rebecca LaMalfa", "Joy Crump", "Keriann von Raesfeld",
+    "Adam Harvey", "Katsuji Tanabe", "Rebecca LaMalfa", "Joy Crump", "Keriann Von Raesfeld",
     "Katie Weinner", "Ron Eyester", "James Rigato", "Katie Weinner", "Aaron Grissom"
   ],
   "California": [
@@ -78,13 +80,13 @@ top_chef_contestants = {
     "John Tesar", "Sheldon Simeon", "Shirley Chung", "Brooke Williamson"
   ],
   "Colorado": [
-    "Jennifer Carroll", "Marcel Vigneron", "Kwame Onwuachi", "Melissa Perfit", "Laura Cole", "Rogelio Garcia",
-    "Tyler Anderson", "Tu David Phu", "Lee Anne Wong", "Brother Luck", "Tonya Holland", "Claudette Zepeda-Wilkins",
-    "Fatima Ali", "Bruce Kalman", "Christopher Scott", "Carrie Baird", "Joe Sasto", "Adrienne Cheatham",
-    "Joseph Flamm"
+    "Melissa Perfit", "Laura Cole", "Rogelio Garcia",
+    "Tyler Anderson", "Tu David Phu", "Lee Anne Wong", "Brother Luck", "Claudette Zepeda-Wilkins",
+    "Fatima Ali", "Bruce Kalman", "Chris Scott", "Carrie Baird", "Joe Sasto", "Adrienne Cheatham",
+    "Joe Flamm"
   ],
   "Kentucky": [
-    "Jim Smith", "Carrie Baird", "Caitlin Steininger", "Natalie Maronski", "Kevin Scharpf", "Pablo Lamon", "Nini Nguyen",
+    "Caitlin Steininger", "Natalie Maronski", "Kevin Scharpf", "Pablo Lamon", "Nini Nguyen",
     "Brother Luck", "Brandon Rosen", "Brian Young", "David Viana", "Edmund Konrad", "Justin Sutherland",
     "Adrienne Wright", "Michelle Minori", "Eric Adjepong", "Sara Bradley", "Kelsey Barnard Clark"
   ],
@@ -280,12 +282,6 @@ ranks = {
     "Paul Qui": 1
   },
   "Seattle": {
-    "Tina Bourbeau": 19,
-    "Stephanie Cmar": 19,
-    "Jorel Pierce": 19,
-    "Gina Keatley": 19,
-    "Daniel O'Brien": 19,
-    "Anthony Gray": 19,
     "Jeffrey Jew": 18,
     "Kuniko Yagi": 17,
     "Chrissy Camba": 16,
@@ -312,7 +308,7 @@ ranks = {
     "Bret Pelaggi": 16,
     "Janine Booth": 15,
     "Michael Sichel": 14,
-    "Benedetto Bartolotta": 13,
+    "Bene Bartolotta": 13,
     "Patricia Vega": 12,
     "Sara Johannes": 11,
     "Travis Masar": 10,
@@ -381,9 +377,25 @@ ranks = {
     "Shirley Chung": 2,
     "Brooke Williamson": 1
   },
+  "Colorado": {
+    "Joe Flamm": 1,
+    "Adrienne Cheatham": 2,
+    "Joe Sasto": 3,
+    "Carrie Baird": 4,
+    "Chris Scott": 5,
+    "Bruce Kalman": 6,
+    "Fatima Ali": 7,
+    "Claudette Zepeda-Wilkins": 8,
+    "Tanya Holland": 9,
+    "Brother Luck": 10,
+    "Lee Anne Wong": 11,
+    "Tu David Phu": 12,
+    "Tyler Anderson": 13,
+    "Rogelio Garcia": 14,
+    "Laura Cole": 15,
+    "Melissa Perfit": 16
+  },
   "Kentucky": {
-    "Jim Smith": 18,
-    "Carrie Baird": 17,
     "Caitlin Steininger": 16,
     "Natalie Maronski": 15,
     "Kevin Scharpf": 14,
@@ -453,3 +465,26 @@ ranks = {
     "Buddha Lo": 1
   }
 }
+
+top_chef_seasons = []
+
+snum = 1
+top_chef_contestants.each do |season_name, contestants|
+  tmp = {}
+  tmp[:number] = snum
+  tmp[:name] = season_name
+  tmp[:contestants] = []
+
+  snum += 1
+
+  contestants.each do |contestant|
+    fname, _, lname = contestant.rpartition(' ')
+    tmp[:contestants].append({ fname:, lname:, rank: ranks[season_name][contestant.to_sym] })
+  end
+
+  top_chef_seasons.append(tmp)
+end
+
+File.open('./db/top_chef_contestants.json', 'w') do |f|
+  f.write(top_chef_seasons.to_json)
+end
