@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @chefs = Show.find_by(name: 'Top Chef').chefs.includes(:restaurants)
+    @shows = Show.first(5)
+    @restaurants = Restaurant.order('RANDOM()').limit(5)
   end
 end
