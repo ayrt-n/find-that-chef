@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   resources :shows, only: [:show]
   resources :seasons, only: [:show]
+  resources :chefs
 end

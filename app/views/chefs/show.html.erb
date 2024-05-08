@@ -1,0 +1,40 @@
+<div class="py-6 px-5 w-full md:flex">
+  <div class="text-lg mb-8 md:px-10">
+    <div class="min-h-48 pt-4 flex flex-col items-center">
+      <div class="rounded-full w-28 h-28 bg-red-400 mb-2">
+      </div>
+      <div>
+        <%= @chef.first_name %>
+      </div>
+      <div>
+        <%= @chef.last_name %>
+      </div>
+    </div>
+  </div>
+  <div class="w-full max-w-[640px] md:px-10">
+    <div class="mb-2">
+      <h1 class="text-2xl font-bold mb-3">
+        Restaurants
+      </h1>
+      <div class="space-y-6">
+        <% @chef.restaurants.each do |restaurant| %>
+          <%= render partial: "shows/restaurant", locals: { restaurant: } %>
+        <% end %>
+      </div>
+    </div>
+    <div>
+      <h1 class="text-2xl font-bold mb-3">
+        Appearances
+      </h1>
+      <div class="space-y-1">
+        <% @chef.appearances.each do |appearance| %>
+          <div>
+            <%= link_to(appearance.season) do %>
+              <%= appearance.show.name %> - Season <%= appearance.season.number %> (<%= appearance.season.name %>)
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
