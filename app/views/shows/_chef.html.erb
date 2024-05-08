@@ -1,14 +1,16 @@
 <div class="flex w-full [&:not(:last-child)]:border-b">
-  <div class="min-w-40 min-h-48 pt-4 flex flex-col items-center sticky">
-    <div class="rounded-full w-24 h-24 bg-red-400 mb-2">
+  <%= link_to(chef) do %>
+    <div class="min-w-40 min-h-48 pt-4 flex flex-col items-center">
+      <div class="rounded-full w-24 h-24 bg-red-400 mb-2">
+      </div>
+      <div>
+        <%= chef.first_name %>
+      </div>
+      <div>
+        <%= chef.last_name %>
+      </div>
     </div>
-    <div>
-      <%= chef.first_name %>
-    </div>
-    <div>
-      <%= chef.last_name %>
-    </div>
-  </div>
+  <% end %>
   <div class="flex-grow py-4 px-6 space-y-6">
     <% if chef.restaurants.empty? %>
       <div class="font-semibold text-xl text-neutral-400">
