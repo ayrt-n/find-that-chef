@@ -1,4 +1,4 @@
-<div class="flex space-x-4 py-6">
+<div class="flex py-6">
   <div class="px-10">
     <p class="text-lg text-neutral-800 font-semibold mt-2 mb-4">
       Filters
@@ -35,7 +35,7 @@
       </div>
     </div>
   </div>
-  <div class="w-[840px] flex flex-col items-center">
+  <div class="w-full max-w-[840px] px-10 flex flex-col items-center">
     <div class="space-y-3 w-full">
       <% @chefs.each do |chef| %>
         <%= render partial: "shows/chef", locals: { chef: chef }%>
