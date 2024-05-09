@@ -1,6 +1,6 @@
 class ShowsController < ApplicationController
   def show
-    @show = Show.find(params[:id])
+    @show = params[:id] ? Show.find(params[:id]) : Show.where(name: 'Top Chef').first
     @seasons = @show.seasons
     @pagy, @chefs = pagy(@show.chefs.order(:first_name, :last_name).includes(:restaurants))
   end
