@@ -1,9 +1,9 @@
 <div class="space-y-3 text-sm text-neutral-500 pb-5 [&:not(:last-child)]:border-b">
-  <div class="flex">
-    <div class="mr-5 font-bold md:text-xl text-lg text-black"><%= restaurant.name %></div>
+  <div class="sm:flex sm:flex-wrap sm:justify-between">
+    <div class="font-bold md:text-xl text-lg text-neutral-900 md:mr-5"><%= restaurant.name %></div>
     <%= render partial: "shows/rating", locals: { rating: restaurant.rating } %>
   </div>
-  <div class="space-x-2">
+  <div class="flex flex-wrap gap-2">
     <% restaurant.category.each do |category| %>
       <span class="bg-slate-200 px-2 py-1 rounded-xl font-semibold text-neutral-500">
         <%= category %>
