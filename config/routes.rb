@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'shows#show'
 
   resources :shows, only: [:show]
   resources :seasons, only: [:show]
