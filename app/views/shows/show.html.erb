@@ -4,7 +4,7 @@
       Season
     </div>
     <div data-controller="dropdown" data-action="keydown.esc->dropdown#hide keydown.up->dropdown#prevItem keydown.down->dropdown#nextItem click@window->dropdown#hide" data-dropdown-open-value="false" class="relative inline-block text-left">
-      <button data-dropdown-target="button" data-action="dropdown#toggle:stop" type="button" class="w-24 inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-haspopup="true">
+      <button data-dropdown-target="button" data-action="dropdown#toggle:stop" type="button" class="max-w-36 w-36 inline-flex w-full justify-between gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-haspopup="true">
         <span class="truncate">
           <% if @season %>
             <%= @season.full_name %>
