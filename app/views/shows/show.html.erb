@@ -32,5 +32,10 @@
         <%= render partial: "shows/chef", locals: { chef: chef }%>
       <% end %>
     </div>
+    <% if @pagy %>
+      <div class="mt-4">
+        <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+      </div>
+    <% end %>
   </div>
 </div>
