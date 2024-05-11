@@ -1,24 +1,3 @@
-# README
+# Find That Chef
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Repository for Chef directory web application. Initialy proof of concept focused on finding Chef's from competitive cooking competitions, allowing users to search by TV show and find out what restaurants certain chefs are currently a part of.
